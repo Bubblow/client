@@ -6,6 +6,7 @@ export default function Home(){
     return(
         <div>
             <h1>Home</h1>
+            <p><Link to="/education">교육관련페이지</Link></p>
             {!isLogin?(
                 <>
                     <p><Link to="/signup">signup</Link></p>
@@ -13,6 +14,7 @@ export default function Home(){
                 </>
             ) : (
                 <>
+                <p><Link to="/mypage">마이페이지</Link></p>
                 <p><Link to="/question">question</Link></p>
                 <p><Link to="/logout">logout</Link></p>
                 </>

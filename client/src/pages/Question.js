@@ -9,8 +9,14 @@ const Question = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://127.0.0.1:8000/question/create', {
-                link
-            });
+                link, 
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}` // 로컬 스토리지에서 토큰을 가져와 헤더에 추가
+                }
+            }
+            );
             console.log(response.data);
             setContent(response.data.content);
         } catch (error) {

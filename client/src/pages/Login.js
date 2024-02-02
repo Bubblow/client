@@ -22,7 +22,7 @@ const Login = () => {
             });
             console.log(response.data);
 
-            localStorage.setItem('accessToken', response.data.accessToken);
+            localStorage.setItem('accessToken', response.data.access_token);
             localStorage.setItem('isLogin', true);
             
             navigate('/');
