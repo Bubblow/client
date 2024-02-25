@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const MypageRecord = () => {
+    const [email, setEmail] = useState('');
     const [link, setLink] = useState([]);
     const [result, setResult] = useState([]);    
 
@@ -13,7 +14,7 @@ const MypageRecord = () => {
                         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     }
                 });
-    
+                setEmail(response.data.email);
                 setLink(response.data.links);
                 setResult(response.data.results);
             } catch (error) {
@@ -26,6 +27,7 @@ const MypageRecord = () => {
     return (
         <div>
             <h2>불러오기</h2>
+            <p>Email: {email}</p>
             {link.map((l, index) => (
                 <p key={index}>번호: {index + 1}, 링크: {l}, 결과: {result[index]}</p>
             ))}

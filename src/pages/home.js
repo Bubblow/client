@@ -7,6 +7,7 @@ export default function Home(){
         <div>
             <h1>Home</h1>
             <p><Link to="/education">교육관련페이지</Link></p>
+            <p><Link to="/model">모델관련페이지</Link></p>
             {!isLogin?(
                 <>
                     <p><Link to="/signup">signup</Link></p>

@@ -9,6 +9,7 @@ import PostRead from './pages/post/PostRead';
 import { Routes, Route } from 'react-router-dom';
 import MypageRecord from './pages/mypage/MypageRecode';
 import Education from './pages/education';
+import Model from './pages/model';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/question" element={<Question />}></Route>
           <Route path="/mypage" element={<MypageRecord />}></Route>
           <Route path="/education" element={<Education />}></Route>
+          <Route path="/model" element={<Model />}></Route>
           {/* <PostCreate /> */}
           {/* <PostRead /> */}
         </Routes>
