@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const Question = () => {
+
+const Question = ({ onLinkSubmit }) => {
     const [link, setLink] = useState('');
-    const [content, setContent] = useState('');
 
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:8000/question/create', {
-                link, 
-            },
-            {
+            const result = await axios.post('http://127.0.0.1:8000/question/create', { link, 
+            create_at: new Date().toISOString(),
+            }, {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('accessToken')}` // 로컬 스토리지에서 토큰을 가져와 헤더에 추가
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
-            }
-            );
-            console.log(response.data);
-            setContent(response.data.content);
+            });
+            console.log(result.data.analysis_result);
+            onLinkSubmit(); // 링크 제출 후 데이터 새로고침을 위한 함수 호출
+            setLink(''); // 링크 입력 필드 초기화
+            navigate('/answer', { state: { analysisResult: result.data.analysis_result, create_at: new Date().toISOString() } });
         } catch (error) {
             console.error(error);
         }
@@ -26,12 +28,11 @@ const Question = () => {
 
     return (
         <div>
-            <h2>Question</h2>
+            <h2>Submit a Link</h2>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={link} onChange={(e) => setLink(e.target.value)} placeholder="링크를 입력하세요" />
-                <button type="submit">검색</button>
+                <input type="text" value={link} onChange={(e) => setLink(e.target.value)} placeholder="Enter a link" />
+                <button type="submit">Submit</button>
             </form>
-            {content && <div><h3>분석 결과:</h3><p>{content}</p></div>}
         </div>
     );
 };
