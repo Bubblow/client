@@ -10,6 +10,7 @@ import Education from './pages/education';
 import Model from './pages/model';
 import Question from './pages/Question';
 import Answer from './pages/answer';
+import VerifyEmail from './pages/VerifyEmail';
 
 function App() {
   return (
@@ -23,9 +24,8 @@ function App() {
           <Route path="/answer" element={<Answer />}></Route>
           <Route path="/mypage" element={<MypageRecord />}></Route>
           <Route path="/education" element={<Education />}></Route>
+          <Route path="/verify" element={<VerifyEmail />}></Route>
           <Route path="/model" element={<Model />}></Route>
-          {/* <PostCreate /> */}
-          {/* <PostRead /> */}
         </Routes>
     </div>
   );
