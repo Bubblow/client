@@ -1,22 +1,30 @@
 import React from 'react';
 import Home from './pages/home'
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import Logout from './pages/Logout';
-import Analysis from './pages/Analysis';
+import Bubblow from './pages/bubblow';
+import Signup from './pages/user/Signup';
+import Login from './pages/user/Login';
+import Logout from './pages/user/Logout';
+import Analysis from './pages/question/Analysis';
 import { Routes, Route } from 'react-router-dom';
 import MypageRecord from './pages/mypage/MypageRecode';
 import Education from './pages/education';
 import Model from './pages/model';
-import Question from './pages/Question';
 import Answer from './pages/answer';
-import VerifyEmail from './pages/VerifyEmail';
+import VerifyEmail from './pages/user/VerifyEmail';
+import EditMypage from './pages/mypage/EditMypage';
+import AccountSetting from './pages/user/AccoutSetting';
+import ChangePassword from './pages/user/ChangePassword';
+import DeleteAccount from './pages/user/DeleteAccount';
+import FindPassword from './pages/user/FindPassword';
+import ResetPassword from './pages/user/ResetPassword';
+import VerifyCode from './pages/user/VerifyCode';
 
 function App() {
   return (
     <div className='App'>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/bubblow" element={<Bubblow />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
@@ -26,6 +34,13 @@ function App() {
           <Route path="/education" element={<Education />}></Route>
           <Route path="/verify" element={<VerifyEmail />}></Route>
           <Route path="/model" element={<Model />}></Route>
+          <Route path="/edit" element={<EditMypage />}></Route>
+          <Route path="/account" element={<AccountSetting />}></Route>
+          <Route path="/change-password" element={<ChangePassword />}></Route>
+          <Route path="/delete" element={<DeleteAccount />}></Route>
+          <Route path="/forgot-password" element={<FindPassword />}></Route>
+          <Route path="/reset-password" element={<ResetPassword />}></Route>
+          <Route path="/verify-code" element={<VerifyCode />}></Route> 
         </Routes>
     </div>
   );

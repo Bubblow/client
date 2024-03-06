@@ -19,7 +19,7 @@ const Signup = () => {
                 password,
             });
             console.log(response.data);
-            // 성공적으로 회원가입이 완료되면, 이메일 인증 페이지로 이동
+            // 회원가입이 완료되면, 이메일 인증 페이지로 이동
             navigate("/verify", { state: { email: email } });
         } catch (error) {
             if (error.response && error.response.status === 409) {
