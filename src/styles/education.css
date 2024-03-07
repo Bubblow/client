@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+.question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5vh;
+}
+
+.title {
+  font-weight: lighter;
+  padding-bottom: 10vh;
+  font-size: 45px;
+}
+
+.link_input {
+  border-radius: 10px;
+  border: 2px solid #91c8e4;
+  width: 600px;
+  height: 50px;
+  margin-right: 10px;
+
+  font-size: 20px;
+  text-indent: 10px;
+}
+
+.link_button {
+  font-weight: bold;
+  height: 45px;
+  width: 90px;
+  border-radius: 20px;
+  border: 2px solid #91c8e4;
+  background-color: #91c8e4;
+  cursor: pointer;
+}

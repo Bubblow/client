@@ -18,10 +18,14 @@ import DeleteAccount from "./pages/user/DeleteAccount";
 import FindPassword from "./pages/user/FindPassword";
 import ResetPassword from "./pages/user/ResetPassword";
 import VerifyCode from "./pages/user/VerifyCode";
+import MyHeader from "./components/MyHeader";
+import "./App.css";
+import "./styles/education.css";
 
 function App() {
   return (
     <div className="App">
+      <MyHeader />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/bubblow" element={<Bubblow />}></Route>
