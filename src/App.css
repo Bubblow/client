@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f7f5f1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* MyHeader */
+
+.header {
+  z-index: 1000;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  width: 100%;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+header .nav_logo {
+  display: flex;
+  padding-left: 5vw;
+  align-items: center;
+}
+
+header .logo {
+  width: 100px;
+  height: 20px;
+  cursor: pointer;
+}
+
+header .logo_bubble {
+  height: 40px;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+header .nav {
+  display: flex;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.nav-item.clicked::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #749bc2;
+}
+
+header .nav_text {
+  display: flex;
+  margin-left: 20px;
+}
+
+header .nav text {
+  padding-right: 5vw;
+  height: 19px;
+
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+header .nav_login {
+  display: flex;
+  cursor: pointer;
+  /* 수직 center */
+  justify-content: center;
+  /* 수평 center */
+  align-items: center;
+}
+
+header .nav_login text {
+  padding-right: 3vw;
+}
+
+header .nav_login .login_text {
+  color: #4682a9;
+  font-size: 14px;
+}
+
+header .nav_login .logout_text {
+  color: #4682a9;
+  font-size: 14px;
+}
