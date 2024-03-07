@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -16,21 +16,18 @@ const Signup = () => {
             const response = await axios.post('http://127.0.0.1:8000/user/signup', {
                 email,
                 name: username,
-                password
+                password,
             });
             console.log(response.data);
-            navigate("/login");
-
+            // 회원가입이 완료되면, 이메일 인증 페이지로 이동
+            navigate("/verify", { state: { email: email } });
         } catch (error) {
-            if(error.response && error.response.status === 409 ){
+            if (error.response && error.response.status === 409) {
                 setErrorMessage('이미 존재하는 이메일입니다.');
-            } 
-            if(error.response && error.response.status === 422){
+            } else if (error.response && error.response.status === 422) {
                 setErrorMessage('비밀번호는 8자리 이상 영문과 숫자를 포함하여 작성해 주세요.');
-            }
-            else {
-            // 기타 에러 처리
-            setErrorMessage('회원가입 중 오류가 발생했습니다.');
+            } else {
+                setErrorMessage('회원가입 중 오류가 발생했습니다.');
             }
             console.error(error);
         }
