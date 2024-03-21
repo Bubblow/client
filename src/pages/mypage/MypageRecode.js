@@ -2,13 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function getFirstChars(text) {
-    return text.substring(0, 30);
-}
-
 const MypageRecord = () => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
+    const [profile, setProfile] = useState('');
     const [results, setResults] = useState([]);
     const [editMode, setEditMode] = useState(false); // 편집 모드 상태
     const [editedUsername, setEditedUsername] = useState(''); // 편집된 닉네임 상태
@@ -23,7 +20,9 @@ const MypageRecord = () => {
                         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     }
                 });
+                console.log(response.data);
                 setEmail(response.data.email);
+                setProfile(response.data.profile);
                 setUsername(response.data.username);
                 setResults(response.data.results); 
                 setEditedUsername(response.data.username);
@@ -63,6 +62,7 @@ const MypageRecord = () => {
         <div>
             <h2>My Page</h2>
             <p>Email: {email}</p>
+            <img src={`http://127.0.0.1:8000${profile}`} alt="이미지" style={{ width: '80px', height: '80px' }}/>
             <p>Nickname: {
                 editMode ? (
                     <input
@@ -89,7 +89,6 @@ const MypageRecord = () => {
                     <p><a href={record.link}>{record.link}</a></p>
                     <p>제목: {record.title}</p> 
                     <img src={record.image_url} alt="이미지" style={{ width: '300px', height: 'auto' }}/>
-                    <p>내용: {getFirstChars(record.content)}...</p> 
                     <p>분석 결과: {record.analysis_result}</p> 
                 </div>
             ))}
