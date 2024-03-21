@@ -88,6 +88,7 @@ const MypageRecord = () => {
                     <p>번호: {index + 1}</p>
                     <p><a href={record.link}>{record.link}</a></p>
                     <p>제목: {record.title}</p> 
+                    <img src={record.image_url} alt="이미지" style={{ width: '300px', height: 'auto' }}/>
                     <p>내용: {getFirstChars(record.content)}...</p> 
                     <p>분석 결과: {record.analysis_result}</p> 
                 </div>
